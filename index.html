@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>world-data</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./styles/normalize.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  
+</head>
+<body>
+  <section>
+      <h1>World Countries Data</h1>
+      <p>Currently, we have 250 countries</p>
+      <div class="fluid">
+        <div class="buttonGroup">
+          <button id="btnPopulation">POPULATION</button>
+          <button id = "btnLanguage">LANGUAGE</button>
+        </div>
+        <p>10 most spoken language in the world</p>
+      </div>
+      
+    <div class="container" >
+      <div class="population " id="population">
+        <ul class="name" id="populationName"></ul>
+        <ul class="bar" id="populationChart">world</ul>
+        <ul class="numbers"id="populationNumber" >232</ul>
+      </div>
+      <div class="language" id="language">
+        <ul class="name">Language</ul>
+        <ul class="bar">wor3123ld</ul>
+        <ul class="numbers">232132</ul>
+      </div>
+    </div>
+  </section>
+</body>
+<script  type="module" src="./script/script.js"></script>
+<script type="module"  src="./data/countries.js"></script>
+</html>
