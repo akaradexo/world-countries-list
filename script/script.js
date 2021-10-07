@@ -9,46 +9,47 @@ const anySearch = document.getElementById("anySearch");
 const filter = document.getElementById("filter");
 const search = document.getElementById("search");
 
-output.innerHTML = countries.map(myFunction)
-function myFunction(value) {
-  return(
-    `<div class="output"><h2>${value}</h2></div>`
-  );
+const ZtoA = document.getElementById("ZtoA");
+const AtoZ = document.getElementById("AtoZ");
+
+//to populate the data
+let text = "";
+countries.forEach(myFunction);
+
+output.innerHTML = text;
+ 
+function myFunction(item, index) {
+  text += `<div class="defaultOutput" id="AtoZ"><h2>${item}</h2></div>` ; 
+
 }
 
+//function
 
 
-// let txt = "";
-// countries.forEach(myFunction);
-// output.innerHTML = txt;
+const searchByWord  = function(e){
+  const word = search.value;
 
-// function myFunction(value, index, array) {
-//   `<div class="output"><h2>${value}</h2></div>`; 
-// }
-
-
-
-
-const searchByWord  = function(){
-  console.log(searchByWord)
-console.log("sds")
 
 }
 const wordSearchName  = function(e){
-  e.preventDefault()
+  e.preventDefault();
 console.log("sds")
 
 
 }
 const anySearchName  = function(e){
-  e.preventDefault()
-console.log("sds")
+  e.preventDefault();
 
   
 }
-const filterName  = function(e){
-  e.preventDefault()
-
+const filterName  = function(){
+  let result = [...countries].reverse()
+  let text = ""; 
+  result.forEach(myFunction);
+  output.innerHTML = text;
+  function myFunction(item, index) {
+  text += `<div class="output" id="ZtoA"><h2>${item}</h2></div>` ; 
+}
 }
 
 
@@ -58,7 +59,7 @@ const filterName  = function(e){
 wordSearch.addEventListener("click",wordSearchName );
 anySearch.addEventListener("click",anySearchName );
 filter.addEventListener("click",filterName);
-search.addEventListener("change",searchByWord);
+search.addEventListener("input",searchByWord);
 
 
 
