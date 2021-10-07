@@ -8,34 +8,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./styles/normalize.css">
   <link rel="stylesheet" href="./styles/style.css">
-  
-</head>
+  </head>
 <body>
   <section>
-      <h1>World Countries Data</h1>
-      <p>Currently, we have 250 countries</p>
-      <div class="fluid">
-        <div class="buttonGroup">
-          <button id="btnPopulation">POPULATION</button>
-          <button id = "btnLanguage">LANGUAGE</button>
-        </div>
-        <p>10 most spoken language in the world</p>
+    <div class="header">
+      <h1>World Countries List</h1>
+      <h3>Total number of countries</h3>
+      <div class="button-group">
+        <button id="wordSearch">Starting words</button>
+        <button id="anySearch">Search with Any Words</button>
+        <button id="filter">Filter A to Z</button>
       </div>
-      
-    <div class="container" >
-      <div class="population " id="population">
-        <ul class="name" id="populationName"></ul>
-        <ul class="bar" id="populationChart">world</ul>
-        <ul class="numbers"id="populationNumber" >232</ul>
-      </div>
-      <div class="language" id="language">
-        <ul class="name">Language</ul>
-        <ul class="bar">wor3123ld</ul>
-        <ul class="numbers">232132</ul>
-      </div>
+      <form>
+        <input type="text" placeholder="Enter the word" id="search" >
+      </form>
+    </div>
+    <div class="container"id="output">
     </div>
   </section>
 </body>
 <script  type="module" src="./script/script.js"></script>
-<script type="module"  src="./data/countries.js"></script>
 </html>
