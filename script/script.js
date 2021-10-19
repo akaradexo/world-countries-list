@@ -8,49 +8,63 @@ const wordSearch = document.getElementById("wordSearch");
 const anySearch = document.getElementById("anySearch");
 const filter = document.getElementById("filter");
 const search = document.getElementById("search");
+const defaultOutput =document.getElementsByClassName("defaultOutput");
 
-const ZtoA = document.getElementById("ZtoA");
-const AtoZ = document.getElementById("AtoZ");
 
 //to populate the data
+
 let text = "";
-countries.forEach(myFunction);
-
+let azResult = [...countries]
+let zaResult = [...countries].reverse()
+azResult.forEach(myFunction);
 output.innerHTML = text;
- 
 function myFunction(item, index) {
-  text += `<div class="defaultOutput" id="AtoZ"><h2>${item}</h2></div>` ; 
-
+  text += `<div class="defaultOutput AtoZ" ><h2>${item}</h2></div>` ; 
 }
 
 //function
 
-
-const searchByWord  = function(e){
-  const word = search.value;
-
-
+//filter z to a
+const filterName  = function(){
+  let text = ""; 
+  zaResult.forEach(myFunction);
+  output.innerHTML = text;
+  function myFunction(item, index) {
+  text += `<div class="defaultOutput ZtoA" ><h2>${item}</h2></div>` ; 
+  }
 }
+
+//simple search
+const searchByWord  = function(e){
+  let word = search.value.toUpperCase();
+  console.log(word)
+  let find = output.querySelectorAll('div.defaultOutput')
+  for(let i = 0;i<find.length;i++ ){
+    let h2 = find[i].getElementsByTagName('h2')[0];
+    //if matched
+    if(h2.innerHTML.toUpperCase().indexOf(word) > -1){
+      find[i].style.display="";
+    }
+    else{
+      find[i].style.display="none";
+    }
+  }
+}
+
+
+
 const wordSearchName  = function(e){
   e.preventDefault();
-console.log("sds")
+console.log("wordSearchName")
 
 
 }
 const anySearchName  = function(e){
   e.preventDefault();
+  console.log("anySearchName")
+}
 
-  
-}
-const filterName  = function(){
-  let result = [...countries].reverse()
-  let text = ""; 
-  result.forEach(myFunction);
-  output.innerHTML = text;
-  function myFunction(item, index) {
-  text += `<div class="output" id="ZtoA"><h2>${item}</h2></div>` ; 
-}
-}
+
 
 
 // add event listeners
@@ -59,7 +73,7 @@ const filterName  = function(){
 wordSearch.addEventListener("click",wordSearchName );
 anySearch.addEventListener("click",anySearchName );
 filter.addEventListener("click",filterName);
-search.addEventListener("input",searchByWord);
+search.addEventListener("keyup",searchByWord);
 
 
 
